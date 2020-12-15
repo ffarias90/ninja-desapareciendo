@@ -32,17 +32,17 @@
         <h5>jQuery - assignment 1</h5>
 
         <div class="row">
-            <div class="col"><img src="img/yoda1jpg.jpg" alt="grogu?"></div>
-            <div class="col"><img src="img/yoda2.jpg" alt="grogu?"></div>
-            <div class="col"><img src="img/yoda3.jpg" alt="grogu?"></div>
-            <div class="col"><img src="img/yoda4.jpg" alt="grogu?"></div>
+            <div class="col"><img src="img/yoda1jpg.jpg" data-alt-src="img/alt.jpeg" alt="grogu?"></div>
+            <div class="col"><img src="img/yoda2.jpg" data-alt-src="img/alt.jpeg" alt="grogu?"></div>
+            <div class="col"><img src="img/yoda3.jpg" data-alt-src="img/alt.jpeg" alt="grogu?"></div>
+            <div class="col"><img src="img/yoda4.jpg" data-alt-src="img/alt.jpeg" alt="grogu?"></div>
         </div>
 
         <div class="row">
-            <divv class="col"><img src="img/yoda5jpg.jpg" alt="grogu?"></divv>
-            <divv class="col"><img src="img/yoda6.jpg" alt="grogu?"></divv>
-            <divv class="col"><img src="img/yoda7.jpg" alt="grogu?"></divv>
-            <divv class="col"><img src="img/yoda8.jpg" alt="grogu?"></divv>
+            <div class="col"><img src="img/yoda5jpg.jpg" data-alt-src="img/alt.jpeg" alt="grogu?"></div>
+            <div class="col"><img src="img/yoda6.jpg" data-alt-src="img/alt.jpeg" alt="grogu?"></div>
+            <div class="col"><img src="img/yoda7.jpg" data-alt-src="img/alt.jpeg" alt="grogu?"></div>
+            <div class="col"><img src="img/yoda8.jpg" data-alt-src="img/alt.jpeg" alt="grogu?"></div>
         </div>
 
         <div class="row">
@@ -66,6 +66,8 @@
         }
 
         $(document).ready(function() {
+
+
             //ocultar imagen  con $this
             $('img').click(function() {
                 $(this).fadeOut();
@@ -76,6 +78,19 @@
             $('#btn-restore').on('click', function() {
                 $('img').fadeIn()
                 decir('Difícil, muchas cosas son.');
+            });
+
+            //opcional
+            $('img').hover(function() {
+                var src = $(this).attr('src');
+                var altsrc = $(this).attr('data-alt-src');
+                $(this).attr('src', altsrc);
+                $(this).attr('data-alt-src', src);
+            }, function() {
+                var src = $(this).attr('src');
+                var altsrc = $(this).attr('data-alt-src');
+                $(this).attr('src', altsrc);
+                $(this).attr('data-alt-src', src);
             });
 
         });
